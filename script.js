@@ -10,10 +10,21 @@ function writePassword() {
   
   //Length
   let length = Number(prompt("password length, 8-128 characters."))
+    if(password.length > 7) 
+      console.log(true)
+  
+    if(password.length < 129)
+      console.log(true)
+    
+    else return(false)
   //character types
   let charType = prompt("What to include in the password? Type 'uppercase, lowercase, numbers, symbols' to include. ")
   
   passwordText.value = password(length, charType);
+  
+  
+  
+    
 
   function password(length, charType) {
     let charGen = {
@@ -22,6 +33,8 @@ function writePassword() {
       numbers: '0123456789',
       symbols: '!@#$%^&*()-_=+',
     };
+    
+    (password.length < 129);
     
     var charTypes = charType.toLowerCase().split(', ');
     charSet = "";
@@ -32,14 +45,15 @@ function writePassword() {
     console.log(charSet);
 
     var retVal = "";
-    
+      
     for (var i = 0; i < length; i++) {
       retVal += charSet.charAt(Math.floor(Math.random() * charSet.length));
+      
     }
     return retVal;
   }
+  
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
