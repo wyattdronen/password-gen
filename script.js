@@ -10,13 +10,9 @@ function writePassword() {
   
   //Length
   let length = Number(prompt("password length, 8-128 characters."))
-    if(password.length > 7) 
-      console.log(true)
-  
-    if(password.length < 129)
-      console.log(true)
-    
-    else return(false)
+  if (length < 8 || length > 128) {
+    alert("Password length must be between 8 and 128 characters!");
+  }
   //character types
   let charType = prompt("What to include in the password? Type 'uppercase, lowercase, numbers, symbols' to include. ")
   
@@ -34,7 +30,6 @@ function writePassword() {
       symbols: '!@#$%^&*()-_=+',
     };
     
-    (password.length < 129);
     
     var charTypes = charType.toLowerCase().split(', ');
     charSet = "";
